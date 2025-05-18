@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "b5e9e3a1-5f3d-4f5d-9c34-8b2d3e5f1a84",
+		"name": "Portfolio API",
+		"description": "API collection for the Portfolio Website Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Education",
+			"item": [
+				{
+					"name": "Get All Education",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/education",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "education"]
+						}
+					}
+				},
+				{
+					"name": "Get Single Education",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/education/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "education", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{education_id}}"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Education",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/education",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "education"]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"institution\": \"Information Technology University\",\n  \"degree\": \"Bachelor of Science\",\n  \"field\": \"Computer Science\",\n  \"startDate\": \"2020-09-01\",\n  \"endDate\": \"2024-05-30\",\n  \"description\": \"Studied computer science with a focus on software engineering\",\n  \"location\": \"San Francisco, CA\",\n  \"achievements\": [\"Dean's List\", \"Graduated with Honors\"]\n}"
+						}
+					}
+				},
+				{
+					"name": "Update Education",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/education/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "education", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{education_id}}"
+								}
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"institution\": \"Information Technology University\",\n  \"degree\": \"Bachelor of Science\",\n  \"field\": \"Computer Engineering\",\n  \"startDate\": \"2020-09-01\",\n  \"endDate\": \"2024-05-30\",\n  \"description\": \"Studied computer engineering with a focus on software development\",\n  \"location\": \"San Francisco, CA\",\n  \"achievements\": [\"Dean's List\", \"Graduated with Honors\", \"Senior Project Award\"]\n}"
+						}
+					}
+				},
+				{
+					"name": "Delete Education",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:5000/api/education/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "education", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{education_id}}"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Skills",
+			"item": [
+				{
+					"name": "Get All Skills",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/skills",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "skills"]
+						}
+					}
+				},
+				{
+					"name": "Get Single Skill",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/skills/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "skills", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{skill_id}}"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Skill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/skills",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "skills"]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"JavaScript\",\n  \"level\": \"Advanced\",\n  \"category\": \"Programming Languages\",\n  \"yearsOfExperience\": 3,\n  \"description\": \"Building web applications with JavaScript frameworks\"\n}"
+						}
+					}
+				},
+				{
+					"name": "Update Skill",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/skills/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "skills", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{skill_id}}"
+								}
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"JavaScript\",\n  \"level\": \"Expert\",\n  \"category\": \"Programming Languages\",\n  \"yearsOfExperience\": 4,\n  \"description\": \"Building complex web applications with various JavaScript frameworks\"\n}"
+						}
+					}
+				},
+				{
+					"name": "Delete Skill",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:5000/api/skills/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "skills", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{skill_id}}"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Get All Projects",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/projects",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "projects"]
+						}
+					}
+				},
+				{
+					"name": "Get Single Project",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/projects/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "projects", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{project_id}}"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/projects",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "projects"]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Portfolio Website\",\n  \"description\": \"Personal portfolio website with MERN stack\",\n  \"technologies\": [\"React\", \"Express\", \"MongoDB\", \"Node.js\"],\n  \"startDate\": \"2024-01-15\",\n  \"endDate\": \"2024-04-20\",\n  \"githubUrl\": \"https://github.com/username/portfolio\",\n  \"projectUrl\": \"https://myportfolio.com\",\n  \"role\": \"Full Stack Developer\",\n  \"highlights\": [\"Implemented RESTful API\", \"Responsive design\", \"Database integration\"]\n}"
+						}
+					}
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/projects/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "projects", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{project_id}}"
+								}
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Portfolio Website - Enhanced\",\n  \"description\": \"Personal portfolio website with MERN stack and advanced features\",\n  \"technologies\": [\"React\", \"Express\", \"MongoDB\", \"Node.js\", \"TypeScript\"],\n  \"startDate\": \"2024-01-15\",\n  \"endDate\": \"2024-05-15\",\n  \"githubUrl\": \"https://github.com/username/portfolio\",\n  \"projectUrl\": \"https://myportfolio.com\",\n  \"role\": \"Full Stack Developer\",\n  \"highlights\": [\"Implemented RESTful API\", \"Responsive design\", \"Database integration\", \"Authentication\"]\n}"
+						}
+					}
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:5000/api/projects/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "projects", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{project_id}}"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Experiences",
+			"item": [
+				{
+					"name": "Get All Experiences",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/experiences",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "experiences"]
+						}
+					}
+				},
+				{
+					"name": "Get Single Experience",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:5000/api/experiences/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "experiences", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{experience_id}}"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Experience",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/experiences",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "experiences"]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"company\": \"Tech Solutions Inc.\",\n  \"position\": \"Junior Developer\",\n  \"startDate\": \"2022-06-15\",\n  \"endDate\": \"2024-01-10\",\n  \"description\": \"Worked as a full-stack developer on various web applications\",\n  \"responsibilities\": [\"Frontend development\", \"API integration\", \"Database design\"],\n  \"location\": \"San Francisco, CA\",\n  \"achievements\": [\"Improved application performance by 30%\", \"Led a team of 3 developers\"]\n}"
+						}
+					}
+				},
+				{
+					"name": "Update Experience",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/experiences/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "experiences", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{experience_id}}"
+								}
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"company\": \"Tech Solutions Inc.\",\n  \"position\": \"Software Developer\",\n  \"startDate\": \"2022-06-15\",\n  \"endDate\": \"2024-02-28\",\n  \"description\": \"Worked as a full-stack developer focusing on web application development\",\n  \"responsibilities\": [\"Frontend development with React\", \"RESTful API development\", \"Database design and optimization\"],\n  \"location\": \"San Francisco, CA\",\n  \"achievements\": [\"Improved application performance by 40%\", \"Led a team of 5 developers\", \"Implemented CI/CD pipeline\"]\n}"
+						}
+					}
+				},
+				{
+					"name": "Delete Experience",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:5000/api/experiences/:id",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "5000",
+							"path": ["api", "experiences", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{experience_id}}"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}
