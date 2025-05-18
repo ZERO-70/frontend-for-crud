@@ -2,49 +2,49 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import ResourceForm from '../../components/ResourceForm';
-import { skillsService } from '../../services/api';
+import { projectsService } from '../../services/api';
 
-const EditSkill = () => {
-  const { skills, updateSkill } = useContext(AppContext);
+const EditProject = () => {
+  const { projects, updateProject } = useContext(AppContext);
   const { id } = useParams();
   const navigate = useNavigate();
-  const [currentSkill, setCurrentSkill] = useState(null);
+  const [currentProject, setCurrentProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchSkillDetails = async () => {
-      // First check if we already have the skill in our context
-      const existingSkill = skills.find(item => (item._id === id || item.id === id));
+    const fetchProjectDetails = async () => {
+      // First check if we already have the project in our context
+      const existingProject = projects.find(item => (item._id === id || item.id === id));
       
-      if (existingSkill) {
-        setCurrentSkill(existingSkill);
+      if (existingProject) {
+        setCurrentProject(existingProject);
         setLoading(false);
         return;
       }
       
       // If not, fetch it from the API
       try {
-        const response = await skillsService.getById(id);
-        setCurrentSkill(response.data);
+        const response = await projectsService.getById(id);
+        setCurrentProject(response.data);
       } catch (err) {
-        console.error('Error fetching skill details:', err);
-        setError('Failed to load skill details');
+        console.error('Error fetching project details:', err);
+        setError('Failed to load project details');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchSkillDetails();
-  }, [id, skills]);
+    fetchProjectDetails();
+  }, [id, projects]);
 
   const handleSubmit = async (formData) => {
     try {
-      await updateSkill(id, formData);
-      navigate('/skills');
+      await updateProject(id, formData);
+      navigate('/projects');
     } catch (err) {
-      setError(err.message || 'Error updating skill');
-      console.error('Error updating skill:', err);
+      setError(err.message || 'Error updating project');
+      console.error('Error updating project:', err);
     }
   };
 
@@ -56,26 +56,26 @@ const EditSkill = () => {
     return <div className="alert alert-danger">{error}</div>;
   }
 
-  if (!currentSkill) {
-    return <div className="alert alert-warning">Skill not found</div>;
+  if (!currentProject) {
+    return <div className="alert alert-warning">Project not found</div>;
   }
 
   return (
     <div className="container mt-4">
-      <h2>Edit Skill</h2>
+      <h2>Edit Project</h2>
       <div className="row">
         <div className="col-md-8">
           <ResourceForm
-            initialData={currentSkill}
+            initialData={currentProject}
             onSubmit={handleSubmit}
-            resourceType="skills"
+            resourceType="projects"
           />
         </div>
       </div>
       <div className="mt-3">
         <button 
           className="btn btn-secondary" 
-          onClick={() => navigate('/skills')}
+          onClick={() => navigate('/projects')}
         >
           Cancel
         </button>
@@ -84,4 +84,4 @@ const EditSkill = () => {
   );
 };
 
-export default EditSkill;
+export default EditProject;

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
 import ResourceCard from '../../components/ResourceCard';
 
-const EducationList = () => {
-  const { education, loading, error, deleteEducation } = useContext(AppContext);
+const ExperiencesList = () => {
+  const { experiences, loading, error, deleteExperience } = useContext(AppContext);
 
   if (loading) {
     return <div className="text-center mt-5"><div className="spinner-border" role="status"></div></div>;
@@ -17,21 +17,21 @@ const EducationList = () => {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Education</h2>
-        <Link to="/education/add" className="btn btn-success">
-          Add Education
+        <h2>Work Experiences</h2>
+        <Link to="/experiences/add" className="btn btn-success">
+          Add Experience
         </Link>
       </div>
 
-      {education.length === 0 ? (
-        <p>No education entries found. Add your first education entry!</p>
+      {experiences.length === 0 ? (
+        <p>No experiences found. Add your first work experience!</p>
       ) : (
-        education.map(item => (
+        experiences.map(item => (
           <ResourceCard
             key={item._id || item.id}
             item={item}
-            resourceType="education"
-            onDelete={deleteEducation}
+            resourceType="experiences"
+            onDelete={deleteExperience}
           />
         ))
       )}
@@ -39,4 +39,4 @@ const EducationList = () => {
   );
 };
 
-export default EducationList;
+export default ExperiencesList;
